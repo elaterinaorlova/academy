@@ -8,6 +8,7 @@ public class Cat {
 	double weight;
 	int age;
 	double height;
+	int money;
 
 //конструктор, чтобы создавать нового кота
 	// без параметров
