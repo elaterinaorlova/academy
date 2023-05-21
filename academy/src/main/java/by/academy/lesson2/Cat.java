@@ -17,12 +17,14 @@ public class Cat {
 	}
 
 	// с параметрами
-	public Cat(String nikname, String color, double weight, int age) {
+	public Cat(String nikname, String color, double weight, int age, double height, int money) {
 		super();
 		this.nikname = nikname;
 		this.color = color;
 		this.weight = weight;
 		this.age = age;
+		this.height = height;
+		this.money = money;
 	}
 
 //метод, поведение кота - наделение возможностями, придавать объекту какое-то поведение
@@ -44,7 +46,8 @@ public class Cat {
 	@Override
 
 	public String toString() {
-		return "nikname : " + nikname + " color : " + color + " weight : " + weight + " age : " + age;
+		return "nikname : " + nikname + " color : " + color + " weight : " + weight + " age : " + age + " height: "
+				+ height + "money: " + money;
 	}
 
 }
