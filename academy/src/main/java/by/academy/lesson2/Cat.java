@@ -2,11 +2,12 @@ package by.academy.lesson2;
 
 public class Cat {
 
-//поля, переменные - состояние
+//поля, переменные - хранить состояние объекта, описываем объект
 	String nikname;
 	String color;
 	double weight;
 	int age;
+	double height;
 
 //конструктор, чтобы создавать нового кота
 	// без параметров
@@ -23,7 +24,7 @@ public class Cat {
 		this.age = age;
 	}
 
-//метод, поведение кота - наделение возможностями
+//метод, поведение кота - наделение возможностями, придавать объекту какое-то поведение
 	public void sleep() {
 		System.out.println(nikname + " спит ");
 		System.out.println();
