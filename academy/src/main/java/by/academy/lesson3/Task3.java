@@ -31,7 +31,6 @@ public class Task3 {
 		int d;
 		int day;
 		int w;
-		int week;
 
 		sec = s % 60;
 
