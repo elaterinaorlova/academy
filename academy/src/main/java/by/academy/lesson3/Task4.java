@@ -12,10 +12,10 @@ public class Task4 {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Введите число 1");
-		float a = sc.nextFloat();
+		double a = sc.nextDouble();
 
 		System.out.println("Введите число 2");
-		float b = sc.nextFloat();
+		double b = sc.nextDouble();
 
 		sc.close();
 
@@ -30,7 +30,7 @@ public class Task4 {
 		} else {
 			System.out.println("наименьшее число: " + b);
 		}
-		float c;
+		double c;
 		c = (a + b) / 2;
 		System.out.println("среднее арифметическое: " + c);
 
