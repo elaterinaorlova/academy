@@ -5,6 +5,8 @@ public class Cat {
 	String nickname;
 	int age;
 	int money;
+	char initials;
+	boolean isHomeAnimal;
 
 	public Cat() {
 		super();
@@ -13,7 +15,6 @@ public class Cat {
 	public Cat(String nickname) {
 		super();
 		this.nickname = nickname;
-
 	}
 
 	public void grow() {
@@ -31,6 +32,30 @@ public class Cat {
 
 	public void walk() {
 		System.out.println(nickname + " Кот гуляет");
+	}
+
+	public int getMoney() {
+		return money;
+	}
+
+	public void setMoney(int money) {
+		this.money = money;
+	}
+
+	public char getInitials() {
+		return initials;
+	}
+
+	public void setInitials(char initials) {
+		this.initials = initials;
+	}
+
+	public boolean getIsHomeAnimal() {
+		return isHomeAnimal;
+	}
+
+	public void setIsHomeAnimal(boolean isHomeAnimal) {
+		this.isHomeAnimal = isHomeAnimal;
 	}
 
 	@Override
