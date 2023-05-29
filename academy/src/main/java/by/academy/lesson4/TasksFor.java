@@ -1,7 +1,7 @@
 package by.academy.lesson4;
 
-import java.util.Scanner;
-
+//1. Составьте программу, выводящую на экран квадраты чисел от 10 до 20.
+//
 //2. Составьте программу, которая вычисляет сумму чисел от 1 до n. 
 //Значение n вводится с клавиатуры.
 //
@@ -12,17 +12,11 @@ import java.util.Scanner;
 //Составьте программу, которая определяет кол-во отрицательных,
 //кол-во положительных и кол-во нулей среди введеных чисел.
 //Значение n вводится с клавиатуры.
-public class Task3 {
+public class TasksFor {
 
 	public static void main(String[] args) {
-
-		Scanner sc = new Scanner(System.in);
-		int x = sc.nextInt();
-		String result = x < 0 ? "negative" : x > 0 ? "positive" : "zero";
-
-		System.out.println(result);
-
-		sc.close();
+		// TODO Auto-generated method stub
 
 	}
+
 }
