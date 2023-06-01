@@ -1,6 +1,6 @@
 package by.academy.homework1;
 
-public class Task4StepenIsWorking {
+public class Task4Stepen {
 
 	public static void main(String[] args) {
 		int x = 2;
@@ -9,15 +9,14 @@ public class Task4StepenIsWorking {
 		boolean isWorking = true;
 
 		while (isWorking) {
-			if (y > +1000000) {
+			if (y > 1_000_000) {
 				isWorking = false;
+				break;
 			} else {
-				y = Math.pow(x, a);
 				a++;
+				y = Math.pow(x, a);
 			}
-
 			System.out.println("2 в степени " + a + " = " + y);
-
 		}
 
 	}
