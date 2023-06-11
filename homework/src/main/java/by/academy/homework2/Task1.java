@@ -4,37 +4,39 @@ import java.util.Scanner;
 
 public class Task1 {
 
+	static boolean compareSymbols(String w1, String w2) {
+
+		if (w1.length() != w2.length()) {
+			return false;
+		}
+
+		int letters1[] = new int[128];
+		int letters2[] = new int[128];
+
+		for (int i = 0; i < w1.length(); i++) {
+			int charWord1 = w1.charAt(i);
+			int charWord2 = w2.charAt(i);
+			++letters1[charWord1];
+			++letters2[charWord2];
+		}
+
+		for (int i = 0; i < letters1.length; i++) {
+			if (letters1[i] != letters2[i])
+				return false;
+		}
+
+		return true;
+
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Введите строку 1: ");
-		String w1 = sc.next();
+		String word1 = sc.next();
 		System.out.println("Введите строку 2: ");
-		String w2 = sc.next();
+		String word2 = sc.next();
 		sc.close();
-
-		int length1 = w1.length();
-		int length2 = w2.length();
-
-		if (length1 != length2) {
-			System.out.println(w1 + " and " + w2 + "-> false");
-
-		}
-		int l1[] = new int[128];
-		int l2[] = new int[128];
-
-		for (int i = 0; i < length1; i++) {
-			int charWord1 = w1.charAt(i);
-			int charWord2 = w2.charAt(i);
-			++l1[charWord1];
-			++l2[charWord2];
-		}
-		for (int i = 0; i < l1.length; i++) {
-			if (l1[i] != l2[i])
-				System.out.println(w1 + " and " + w2 + "-> false");
-
-		}
-
-		System.out.println(w1 + " and " + w2 + "-> true");
-
+		System.out
+				.println("“" + word1 + "“" + " " + " and " + "“" + word2 + "“" + " -> " + compareSymbols(word1, word2));
 	}
 }
