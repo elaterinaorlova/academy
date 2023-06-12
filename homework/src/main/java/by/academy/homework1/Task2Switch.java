@@ -12,29 +12,32 @@ public class Task2Switch {
 		String type = sc.next();
 
 		System.out.println("Введите переменную");
-		int number = sc.nextInt();
 
 		switch (type) {
 		case "int":
-			System.out.println(number = number % 2);
+			int i = sc.nextInt();
+			System.out.println("Остаток от деления на 2: " + (i = i % 2));
 			break;
 		case "double":
-			System.out.println(number = number * 70 / 100);
+			double d = sc.nextDouble();
+			System.out.println("70 % от числа: " + (d = d * 70 / 100));
 			break;
 		case "float":
-			System.out.println(number = number * number);
+			float f = sc.nextFloat();
+			System.out.println("Возведение в квадрат: " + (f = f * f));
 			break;
 		case "char":
-			System.out.println("charAt(0)");
+			int c = sc.next().charAt(0);
+			System.out.println("Код символа: " + c);
 			break;
 		case "String":
-			System.out.println("Hello " + number);
+			String s = sc.next();
+			System.out.println("Hello " + s);
 			break;
 		default:
 			System.out.println("Unsupported type");
 			break;
 		}
-
 		sc.close();
 	}
 
