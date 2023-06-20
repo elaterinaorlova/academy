@@ -9,18 +9,13 @@ public class CatApplication {
 		Cat cat2 = new Cat(" Том ");
 
 		cat2.eat();
-		System.out.println();
 		cat2.sleep();
-		System.out.println();
 		cat2.walk();
-		System.out.println();
 
 		cat1.grow();
-		System.out.println();
 		cat1.grow();
-		System.out.println();
 		cat1.grow();
-		System.out.println(cat1);
+		System.out.println("Возраст кота2 теперь: " + cat1.age);
 
 	}
 
