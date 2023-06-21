@@ -1,18 +1,14 @@
 package by.academy.homework2;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class Task4 {
+public class Deal {
 
 	public static void main(String[] args) {
 		String[] arraySuit = { "Пики", "Бубны", "Трефы", "Червы" };
 		String[] arrayRank = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Валет", "Дама", "Король", "Туз" };
-		System.out.println(Arrays.toString(arraySuit));
-		System.out.println(Arrays.toString(arrayRank));
 
 		int cardsNumber = arraySuit.length * arrayRank.length;
-		System.out.println(cardsNumber);
 
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Insert number of players: ");
