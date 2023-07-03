@@ -1,36 +1,31 @@
 package by.academy.homework3;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Objects;
 
-class Deal {
+public class Deal {
 
-	String address;
-	User buyer;
-	User seller;
-	Product[] products;
-	int currentIndex = 0;
+	private User buyer;
+	private User seller;
+	private Product[] products;
+	private int currentIndex = 0;
+	private LocalDate today = LocalDate.now();
+	public LocalDate deadlineDate = today.plusDays(10);
 
-//	LocalDate today = LocalDate.now();
-//	int year = today.getYear();
-//	int month = today.getMonth();
-//	int dayMonth = today.getDayOfMonth();
-//	LocalDate deadlineDate = today.plusDays(10);
-
-	Deal() {
+	public Deal() {
 		super();
 		products = new Product[10];
 	}
 
-	Deal(String address, User buyer, User seller, Product[] products) {
+	public Deal(User buyer, User seller, Product[] products) {
 		super();
-		this.address = address;
 		this.buyer = buyer;
 		this.seller = seller;
 		this.products = products;
 	}
 
-	double calcDealPrice() {
+	public double calcDealPrice() {
 		double price = 0;
 		for (Product product : products) {
 			if (product == null)
@@ -40,36 +35,35 @@ class Deal {
 		return price;
 	}
 
-	void addProduct(Product product) {
+	public void addProduct(Product product) {
 		if (products == null) {
 			products = new Product[10];
 		}
 		if (currentIndex >= products.length) {
 			grows();
 		}
-
 		products[currentIndex++] = product;
 	}
 
-	void grows() {
+	public void grows() {
 		Product[] temp = new Product[products.length * 2 + 1];
 		System.arraycopy(products, 0, temp, 0, temp.length);
 		products = temp;
 	}
 
-	void print() {
+	public void print() {
 		for (int i = 0; i < currentIndex; i++)
 			System.out.println(i + ".[" + products[i] + " ]");
 	}
 
-	void remove() {
+	public void remove() {
 		if (currentIndex == 0) {
 			return;
 		}
 		products[--currentIndex] = null;
 	}
 
-	void remove(int index) {
+	public void remove(int index) {
 		if (products == null || currentIndex == 0) {
 			return;
 		}
@@ -79,14 +73,6 @@ class Deal {
 			currentIndex--;
 		} else
 			return;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
 	}
 
 	public User getBuyer() {
@@ -121,12 +107,28 @@ class Deal {
 		this.currentIndex = currentIndex;
 	}
 
+	public LocalDate getToday() {
+		return today;
+	}
+
+	public void setToday(LocalDate today) {
+		this.today = today;
+	}
+
+	public LocalDate getDeadlineDate() {
+		return deadlineDate;
+	}
+
+	public void setDeadlineDate(LocalDate deadlineDate) {
+		this.deadlineDate = deadlineDate;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + Arrays.hashCode(products);
-		result = prime * result + Objects.hash(address, buyer, currentIndex, seller);
+		result = prime * result + Objects.hash(buyer, currentIndex, seller);
 		return result;
 	}
 
@@ -139,15 +141,14 @@ class Deal {
 		if (getClass() != obj.getClass())
 			return false;
 		Deal other = (Deal) obj;
-		return Objects.equals(address, other.address) && Objects.equals(buyer, other.buyer)
-				&& currentIndex == other.currentIndex && Arrays.equals(products, other.products)
-				&& Objects.equals(seller, other.seller);
+		return Objects.equals(buyer, other.buyer) && currentIndex == other.currentIndex
+				&& Arrays.equals(products, other.products) && Objects.equals(seller, other.seller);
 	}
 
 	@Override
 	public String toString() {
-		return "Deal [address=" + address + ", buyer=" + buyer + ", seller=" + seller + ", products="
-				+ Arrays.toString(products) + ", currentIndex=" + currentIndex + "]";
+		return "Deal [buyer=" + buyer + ", seller=" + seller + ", products=" + Arrays.toString(products)
+				+ ", currentIndex=" + currentIndex + "]";
 	}
 
 }

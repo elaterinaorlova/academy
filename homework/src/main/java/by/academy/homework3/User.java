@@ -12,7 +12,6 @@ public class User {
 
 	public User() {
 		super();
-
 	}
 
 	public User(String name, int age, double money, String phone, String email, LocalDate dateOfBirth) {
@@ -22,7 +21,6 @@ public class User {
 		this.phone = phone;
 		this.email = email;
 		this.dateOfBirth = dateOfBirth;
-
 	}
 
 	public String getPhone() {
@@ -108,7 +106,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", age=" + age + ", money=" + money + "]";
+		return "User [name=" + name + ", age=" + age + ", money=" + money + ", phone=" + phone + ", email=" + email
+				+ ", dateOfBirth=" + dateOfBirth + "]";
 	}
 
 }

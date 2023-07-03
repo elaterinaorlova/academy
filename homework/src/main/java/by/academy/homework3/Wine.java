@@ -5,54 +5,44 @@ class Wine extends Product {
 	private String color;
 	private double strength;
 
-	Wine() {
+	public Wine() {
 		super();
 	}
 
-	Wine(String name, double price, double quantity) {
+	public Wine(String name, double price, double quantity, String color, double strength) {
 		super(name, price, quantity);
-	}
-
-	Wine(String color, double strength) {
-		super();
 		this.color = color;
 		this.strength = strength;
 	}
 
-	Wine(String name, double price, double quantity, String color, double strength) {
-		super();
-		this.color = color;
-		this.strength = strength;
-	}
-
-	String getColor() {
+	public String getColor() {
 		return color;
 	}
 
-	void setColor(String color) {
+	public void setColor(String color) {
 		this.color = color;
 	}
 
-	double getStrength() {
+	public double getStrength() {
 		return strength;
 	}
 
-	void setStrength(double strength) {
+	public void setStrength(double strength) {
 		this.strength = strength;
 	}
 
 	@Override
-	double discount() {
+	public double discount() {
 		if (strength < 12) {
-			return 0.8;
+			return 0.5;
 		}
 		return 1;
 	}
 
 	@Override
 	public String toString() {
-		return "Wine [color=" + color + ", strength=" + strength + ", name=" + name + ", price=" + price + ", quantity="
-				+ quantity + "]";
+		return "Wine [name=" + name + ", price=" + price + ", quantity=" + quantity + ", color=" + color + ", strength="
+				+ strength + "]";
 	}
 
 }

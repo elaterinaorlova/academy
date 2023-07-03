@@ -1,50 +1,71 @@
 package by.academy.homework3;
 
-abstract class Product {
+import java.util.Objects;
+
+public abstract class Product {
 
 	protected String name;
 	protected double price;
 	protected double quantity;
 
-	Product() {
+	public Product() {
 		super();
 	}
 
-	Product(String name, double price, double quantity) {
+	public Product(String name, double price, double quantity) {
 		super();
 		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
 	}
 
-	double calcProductPrice() {
+	public double calcProductPrice() {
 		return price * quantity * discount();
 	}
 
 	abstract double discount();
 
-	String getName() {
+	public String getName() {
 		return name;
 	}
 
-	void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	double getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	void setPrice(double price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
-	double getQuantity() {
+	public double getQuantity() {
 		return quantity;
 	}
 
-	void setQuantity(double quantity) {
+	public void setQuantity(double quantity) {
 		this.quantity = quantity;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(name, price, quantity);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Product other = (Product) obj;
+		return Objects.equals(name, other.name)
+				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price)
+				&& Double.doubleToLongBits(quantity) == Double.doubleToLongBits(other.quantity);
 	}
 
 	@Override

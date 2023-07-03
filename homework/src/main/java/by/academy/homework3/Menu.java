@@ -14,23 +14,13 @@ public class Menu {
 		this.deal = deal;
 	}
 
-//	public void printMenu() {
-//		System.out.println("Make some choise:");
-//		System.out.println("0 - Exit program");
-//		System.out.println("1 - Add product");
-//		System.out.println("2 - Set buyer");
-//		System.out.println("3 - Set seller");
-//		System.out.println("4 - Remove product");
-//		System.out.println("5 - Print products");
-//		System.out.println("6 - Deal");
-//	}
 	public void start() {
-		int choise;
+		int choice;
 		do {
 			printMenu();
 
-			choise = scanner.nextInt();
-			switch (choise) {
+			choice = scanner.nextInt();
+			switch (choice) {
 			case 0:
 				System.out.println("Program is finished");
 				return;
@@ -51,13 +41,13 @@ public class Menu {
 				break;
 			case 6:
 				deal();
-				break;
+				return;
 			default:
-				System.out.println("No such choise");
+				System.out.println("No such choice");
 				break;
 			}
 
-		} while (choise != 0);
+		} while (choice != 0);
 
 	}
 
@@ -78,54 +68,58 @@ public class Menu {
 		do {
 			System.out.println("Enter user dateOfBirth (dd/mm/yyyy or dd-mm-yyyy): ");
 			dateOfBirth = scanner.next();
-
 		} while (!DateFormat.isValidDate(dateOfBirth));
-
 		user.setDateOfBirth(DateFormat.parse(dateOfBirth));
 
 		String phone;
 		do {
-			System.out.println("Enter user phone : ");
+			System.out.println("Enter user phone (+375...) : ");
 			phone = scanner.next();
-
-		} while (!phoneValidator.isValid(phone));
+		} while (!phoneValidator.validate(phone));
 		user.setPhone(phone);
 
 		String email;
 		do {
 			System.out.println("Enter user email : ");
 			email = scanner.next();
-
-		} while (!emailValidator.isValid(email));
+		} while (!emailValidator.validate(email));
 		user.setEmail(email);
-
 		return user;
 	}
 
 	public void createSeller() {
 		System.out.println("Enter seller info: ");
 		deal.setSeller(createUser());
-
+		System.out.println("You added Seller: " + deal.getSeller());
+		System.out.println("-----------------");
 	}
 
 	public void createBuyer() {
 		System.out.println("Enter buyer info: ");
 		deal.setBuyer(createUser());
+		System.out.println("You added Buyer: " + deal.getBuyer());
+		System.out.println("-----------------");
 	}
 
 	public void removeProduct() {
 		System.out.println("Print product index: ");
 		int index = scanner.nextInt();
 		deal.remove(index);
+		System.out.println("You removed product");
+		System.out.println("-----------------");
 	}
 
 	public void printProducts() {
 		deal.print();
+		System.out.println("-----------------");
 	}
 
 	public void deal() {
+		System.out.println("Full deal cost: " + deal.calcDealPrice());
+		System.out.println("Deadline Date: " + deal.deadlineDate);
 		System.out.println("Deal is finished");
 		scanner.close();
+
 	}
 
 	public void addProduct() {
@@ -145,14 +139,30 @@ public class Menu {
 			Double strength = scanner.nextDouble();
 			deal.addProduct(new Wine(name, price, quantity, color, strength));
 			break;
+		case "cheese":
+			System.out.println("Enter cheese fatPercentage: ");
+			double fatPercentage = scanner.nextDouble();
+			System.out.println("Enter if isMoldy (true or false): ");
+			boolean isMoldy = scanner.nextBoolean();
+			deal.addProduct(new Cheese(name, price, quantity, fatPercentage, isMoldy));
+			break;
+		case "apricot":
+			System.out.println("Enter apricot sort(from 1 to 3): ");
+			int sort = scanner.nextInt();
+			System.out.println("Enter apricot producer: ");
+			String producer = scanner.next();
+			deal.addProduct(new Apricot(name, price, quantity, sort, producer));
+			break;
 
 		default:
 			System.out.println("Wrong type");
 		}
+		System.out.println("You added product " + type);
+		System.out.println("-------------------");
 	}
 
 	public void printMenu() {
-		System.out.println("Make some choise:");
+		System.out.println("Make some choice:");
 		System.out.println("0 - Exit program");
 		System.out.println("1 - Add product");
 		System.out.println("2 - Set buyer");

@@ -6,6 +6,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class DateFormat {
+//	String dateOfBirth;
+//	do {
+//		System.out.println("Enter user dateOfBirth (dd/mm/yyyy or dd-mm-yyyy): ");
+//		dateOfBirth = scanner.next();
+//	} while (!DateFormat.isValidDate(dateOfBirth));
+//	user.setDateOfBirth(DateFormat.parse(dateOfBirth));
 
 	public static final Pattern DATE_FORMAT_DD_MM_YYYY_1 = Pattern
 			.compile("(0?[1-9]|[12][0-9]|3[01])(-)(0?[1-9]|1[012])(-)((19|20)\\d\\d)");
