@@ -21,6 +21,7 @@ public class AirlineCompanyDemo {
 		airline.airlineCompanyCapacity();
 		airline.sortAirplanesFlightDistance();
 		airline.fuelConsumption(50, 200);
+		airline.airplanesHierarchy(20000, 500);
 
 	}
 

@@ -78,7 +78,21 @@ public class AirlineCompany {
 				count++;
 			}
 		}
-
 	}
 
+	public void airplanesHierarchy(int distance, int passengerCapacity) {
+		ArrayList<Airplane> airplanesHierarchy = new ArrayList<>();
+		for (Airplane airplane : airplanes) {
+			if (airplane.getFlightDistance() >= distance && airplane.getPassengerCapacity() >= passengerCapacity) {
+				airplanesHierarchy.add(airplane);
+			}
+		}
+		airplanesHierarchy.sort(Comparator.comparing(Airplane::getFuelConsumption));
+		System.out.println("Hierarchy of airplanes on your parametrs \"flight distance\" and \"passengerCapacity\"  ");
+		int count = 1;
+		for (Airplane airplane : airplanesHierarchy) {
+			System.out.println(count + ": " + airplane.toString());
+			count++;
+		}
+	}
 }
